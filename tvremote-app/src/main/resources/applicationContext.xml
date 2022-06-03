@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+  <!-- .xml can be in src/main/java or src/main/resources spring will automatically detect it
+for a custom folder we need give path for that in ClassPathXmlApplicationContext(path) in tester -->
+<!-- use .xml configuration can be used for inbuilt classes with annotation (use it for user defined classes)  -->
+<!-- spring annotation perspective bean is called as component -->
+<!-- @Component used to create a bean -->
+<!-- this tag used to scan  @Component to annotation in all the class present in the package 
+and @Component class must have default constructor  -->
+<!-- if my base-package having pakg_name.class_name then it will only create bean for that class only -->
+<!-- I can even give com also inside base-package -->
+	<context:component-scan base-package="com.xworkz.tvremote"></context:component-scan>
+	<!-- LocalSessionFactoryBean performs two tasks 
+		1. Integrate hibernate with spring
+		2. Register SessionFactory with spring container 
+	 -->
+		<bean class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="configLocations" value="hibernate.cfg.xml"></property>
+	</bean>
+
+</beans>
