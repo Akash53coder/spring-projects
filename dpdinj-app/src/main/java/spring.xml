@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<!-- bean container is bean facory -->
+<!-- singleton=>single=>one ton => object -->
+<!-- IOC container often creates singleton object of every class (this is default behavior) -->
+
+<!-- scope of bean is singleton means how many instances are created in container -->
+	<!-- id="wallet" refers to a reference variable -->
+	
+	
+	
+	<!-- ******* very IMP Point scope is an attribute that takes 2 values
+	one is singleton(which is default) and prototype (like I can create multiple instances
+	 there are 5 scopes 1. singleton 2. prototype 3.session 4.global  5.request-->
+	<bean class="com.xworkz.dependencyinjection.Wallet" id="wallet" scope="singleton"> <!-- scope="singleton" be default -->
+		<constructor-arg name="color" value="black"></constructor-arg>
+		<constructor-arg name="brand" value="woodland"></constructor-arg>
+		<constructor-arg name="money" ref="money"></constructor-arg>
+		<constructor-arg name="atm" ref="atm"></constructor-arg>
+		<!-- ref here refers to dependency injection -->
+	</bean>
+	
+	<!-- the class in bean tag will give meta data of a class where it is present -->
+	<!-- <bean class="com.xworkz.dependencyinjection.Wallet" id="wallet" scope="prototype"> creates multiple instances 
+		<constructor-arg name="color" value="black"></constructor-arg>
+		<constructor-arg name="brand" value="woodland"></constructor-arg>
+		<constructor-arg name="money" ref="money"></constructor-arg>
+		<constructor-arg name="atm" ref="atm"></constructor-arg>
+		ref here refers to dependency injection
+	</bean>
+ -->
+	<bean class="com.xworkz.dependencyinjection.Money" id="money">
+		<property name="size" value="12"></property>
+		<property name="value" value="1000"></property>
+		<property name="isCoin" value="false"></property>
+	</bean>
+
+	<bean class="com.xworkz.dependencyinjection.ATM" id="atm">
+		<property name="atmNo" value="1211121"></property>
+		<property name="cvv" value="323"></property>
+		<property name="wifiConnected" value="true"></property>
+	</bean>
+
+	<bean class="com.xworkz.dependencyinjection.Photo" id="photo">
+		<!-- <constructor-arg value="passport"></constructor-arg>
+		<constructor-arg value="32"></constructor-arg> -->
+		<!-- here values are loaded through the property file in src/main/resources folder -->
+		<property name="photoSize" value="${photoSize}"></property>
+		<property name="price" value="${price}"></property>
+		<!-- spring container gives a bean for properties  PropertyPlaceHolderConfigurer to load the property files-->
+	</bean>
+	
+	<!-- creating bean of PropertyPlaceHolderConfigurer -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<!-- loading the file -->
+		<property name="location" value="photo.properties"></property>
+		<!-- property name can location or locations -->
+	</bean>
+</beans>
