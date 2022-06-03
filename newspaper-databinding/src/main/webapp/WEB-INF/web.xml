@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>newspapermvn-servlet-springmvc</display-name>
+ <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list> 
+  <!-- dispatcher servlet always look for spring config file in web-inf folder
+  as dispatcher servlet object is created it calls a constructor that takes webapplicationContext as parameter -->
+  <servlet>
+  	<servlet-name>webApplicationContext</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>/WEB-INF/classes/webApplicationContext.xml</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>webApplicationContext</servlet-name>
+  	<url-pattern>*.zzz</url-pattern><!-- * is suffix and zzz is prefix, which can be changed -->
+  </servlet-mapping>
+</web-app>

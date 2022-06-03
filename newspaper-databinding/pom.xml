@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.xworkz.newspaper</groupId>
+	<artifactId>newspape-databinding</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compilrt.target>1.8</maven.compilrt.target>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId><!-- group id refers to the package 
+				where jar is present -->
+			<artifactId>spring-context</artifactId><!-- artifact Id refers to the 
+				name of the jar -->
+			<version>4.3.26.RELEASE</version> <!-- version may be anything which is compatible and stable and this also 
+				compatible with constructor initialization with @Value -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+		<!-- Dispatcher Servlet is from this dependency -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.3.26.RELEASE</version>
+		</dependency>
+
+	</dependencies>
+</project>
