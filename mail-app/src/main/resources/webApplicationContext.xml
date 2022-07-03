@@ -13,7 +13,7 @@
 	<bean class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com"></property>
 		<property name="username" value="akash.mabali7@gmail.com"></property>
-		<property name="password" value="xxca tgob dzfm xyqa"></property>
+		<property name="password" value="-----"></property>
 		<property name="port" value="587"></property><!-- 465 -->
 		<property name="javaMailProperties">
     <props>
